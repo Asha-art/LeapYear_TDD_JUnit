@@ -1,27 +1,35 @@
 package LeapYear;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 public class LeapYearTest {
+
+    LeapYear leapYear = new LeapYear();
+
     @Test
-    public void isLeapYear1996() {
-        LeapYear leapyear = new LeapYear();
-        Assert.assertEquals(true, leapyear.IsLeapYear(1996));
+    public void leapYear1996() {
+        boolean leap = leapYear.isLeapYear(1996);
+        assertTrue(leap);
     }
 
-    public void isLeapYear2001() {
-        LeapYear leapyear = new LeapYear();
-        Assert.assertEquals(false, leapyear.IsLeapYear(2001));
+    @Test
+    public void leapYears2000() {
+        boolean leap = leapYear.isLeapYear(2000);
+        assertTrue(leap);
     }
 
-    public void isLeapYear200() {
-        LeapYear leapyear = new LeapYear();
-        Assert.assertEquals(true, leapyear.IsLeapYear(2000));
+    @Test
+    public void nonLeapYear2001() {
+        boolean leap = leapYear.isLeapYear(2001);
+        assertFalse(leap);
     }
 
-    public void isLeapYea1900() {
-        LeapYear leapyear = new LeapYear();
-        Assert.assertEquals(false, leapyear.IsLeapYear(1900));
+    @Test
+    public void nonLeapYear1900() {
+        boolean leap = leapYear.isLeapYear(1900);
+        assertFalse(leap);
     }
 }
